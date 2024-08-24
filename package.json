@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test:open": "npx cypress open --e2e",
+    "test": "npx cypress run --headless --browser chrome"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "cypress": "^13.13.3",
+    "cypress-mochawesome-reporter": "^3.6.0"
+  }
+}

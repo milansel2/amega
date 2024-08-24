@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "72ee3bb3-ac14-45f4-bf61-203f1fb8ba01",
+		"name": "amega",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2918682"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('accessToken', res.user.accessToken);\r",
+							"\r",
+							"pm.test(\"Response has user object that is not empty\", function () {\r",
+							"    pm.expect(pm.response.json().user).to.be.an('object').and.to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has keys: id, accessToken, exp\", function () {\r",
+							"    pm.expect(res.user).to.include.keys(['id', 'accessToken', 'exp']);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "__Host-next-auth.csrf-token=477489bc5ba234312feaf0b0e1ffef0439a16bc4e438bc979ba60a024a8a05e6%7Cb379fd6f93af473fa2461e12c7944d8be560c38c556607c2615fab1f9004638d; _scid=5712f456-4b52-45fc-a81b-4a9f46183410; _hjHasCachedUserAttributes=true; _tt_enable_cookie=1; _ttp=12Fg3TSM6al1fEKIh0eZE5o4f86; _ScCbts=%5B%5D; __adroll_fpc=28dc0b752a98445126d37cac58c94c48-1724494532624; _gcl_au=1.1.1647203823.1724494533; _ga=GA1.1.479208435.1724494533; _fbp=fb.1.1724494533070.29587874741263319; _sctr=1%7C1724450400000; _cioanonid=3fe6f0e3-9fec-0849-e6bb-15c1ffb4b9b4; intercom-id-vqqqbck5=0e49a65e-0eab-49ec-8897-042b19d642ba; intercom-session-vqqqbck5=; intercom-device-id-vqqqbck5=33eb1239-afb6-47b4-9027-3770730b7a03; amega=i4q8aukjjrshohihc7edb0arlh; user_id_login=205456; _hjSessionUser_3634091=eyJpZCI6ImEzZGQyMDdlLTM0MjUtNTY0MS04NjM5LWY3MTVhMDA0Njg1YSIsImNyZWF0ZWQiOjE3MjQ0OTQ1MzIzNjgsImV4aXN0aW5nIjp0cnVlfQ==; 205456_status=unverified; _hjSession_3634091=eyJpZCI6IjEyMmU5ZDU1LWEzNDItNDgyNy05MzY4LTgxZDI2NjdkZTllZSIsImMiOjE3MjQ1MjUxMzE2NjksInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=; cf_clearance=pf7RRAyoeLYcg9kOXiNHX12Pco42JK5IpxQyYj9AJY8-1724527120-1.2.1.1-N0vGdJ9BfkjtFeRf0KJiRqa2J1QcPxCbSnNpVa2WXkiAucSeDPnVgj2eIstnWOh75p8YT9iu9_MWsMJamB0IDjS8IeLOFG3p7kcuMjlZnK4wsW6rcBSbiKwcV1f1ud2y9nrFkPuZ0JwnuThEMMD0.sIfu6C8ayGm_r4x.GGU_ukI_nuJsrKnPbAVEZhIyW_lrPYeSfikcSRkerQ3WvUmoo2xH.wZK2qDGE4xq5GFu_J6zFpdWj7w.PPQq0t4J7OPGf3NcuI_iJrrhvLgDM_IaUYEFxPdbc0XY8yCHWGCXR0eE7473QfbPSO6simGPCesOyhdZJGS7wbAtr9M_0K6oh_n7_Pi7hncCIATD705ZLcbiIFdP_w8oLMQ2Q0rC23n; user_id=undefined; languages=sr-RS%2Csr%3Bq%3D0.9; userAgent=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F127.0.0.0%20Safari%2F537.36; xForwardedFor=212.69.13.43%2C212.69.13.43%2C%2010.216.35.99; countryCode=RS; country=Serbia; ip=212.69.13.43; _scid_r=5712f456-4b52-45fc-a81b-4a9f46183410; OptanonConsent=isGpcEnabled=0&datestamp=Sat+Aug+24+2024+21%3A19%3A30+GMT%2B0200+(Central+European+Summer+Time)&version=202211.1.0&isIABGlobal=false&hosts=&consentId=6ef701e4-87f3-44ed-b718-fd67c9cf3408&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&geolocation=RS%3B00&AwaitingReconsent=false; OptanonAlertBoxClosed=2024-08-24T19:19:30.034Z; site24x7rumID=1271720892101360.1724527118415.1724527169207; _ga_GD6VGRGFFY=GS1.1.1724523795.6.1.1724527474.56.0.0; __Secure-next-auth.callback-url=https%3A%2F%2Fclient.amega.finance%2F; __ar_v4=JRZCXXNPPNBOBNVXSONRSR%3A20240823%3A2%7CTAWG3VNYZ5CV3KFBK6ZT3O%3A20240823%3A7%7CLSS63M4R5RDPNBUVQAZRZV%3A20240823%3A25%7CI6GKY7BX3BCZXAXC3EQBNP%3A20240823%3A34%7CBPP7MTQWCFCJRA5JSJCKL2%3A20240823%3A34; __Secure-next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..seqlz50lfhzyffny.V_TNVaupvggKBQ5fjDOIM6L0RoLb1d9Qp2snKKBikVr8UYsOG9iPOfIOA4E2VTcwT1tQPDDebW7yJ4TjBAHJITq4uDGxPyQ61PCFDcMgwqIDnrmImTFYwu21yw8Vv9HTjEebzO6NyWbpoUAvwA6eIea8HpP770cSnDGF-ehs_k3wXtsjUMbMYU-Mz5_7Z1xW2tNTNnFt31YsmFbH4v-pAXTAeIvZbuQuErk2852kzY14rsQV9lx060n9nWem3f7j_B03FgmBJrCeVax4s-qcxmec-Yh2K7zLtxSF9fIbRptCcz-UF8YJOleuffWo9PmIpORMIaj2vyQrEPSjjVPpiBYy-ky-yPaSgTRCLCEOfGLjE770u_i-jDn0_z9bGZQmgBefL2FBdaHrXZ-PEXyrj1pmTfzQsFfIsHBXtRd-kEEafPVPbOmBDdIvyrPkKsqZGbY8DCfeuvQP55Thtr9kSsnNJZd23I_0p2_HJ5_Igrw1siazTjf-mHR2IYyqxlVDrXZbPACeStYDRwujWy_dP9Zyd_ByTMIjMtOlO2YKGUzBKuQ2_ZohLkY1p5mQ6A3Ln-5K8g.zI09JoBp4mY5cDcBEO7jSw; ph_phc_3SRn7ullkhvaimXOuZz3TYA3MdqoRopuETFsOR05U5C_posthog=%7B%22distinct_id%22%3A%22205456%22%2C%22%24sesid%22%3A%5B1724527476436%2C%22019185d4-4fcf-7961-8b55-e48ca156dd92%22%2C1724527169487%5D%2C%22%24epp%22%3Atrue%7D"
+					}
+				],
+				"url": {
+					"raw": "https://client.amega.finance/api/auth/session",
+					"protocol": "https",
+					"host": [
+						"client",
+						"amega",
+						"finance"
+					],
+					"path": [
+						"api",
+						"auth",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update profie sms notification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response.json();\r",
+							"\r",
+							"pm.test(\"SMS notification is changed\", function() {\r",
+							"     pm.expect(res.smsNotificationEnabled).to.be.true\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"smsNotificationEnabled\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://my.amega.finance/client-api/profile",
+					"protocol": "https",
+					"host": [
+						"my",
+						"amega",
+						"finance"
+					],
+					"path": [
+						"client-api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payment APS withdrawal",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function generateRandomString(length) {\r",
+							"    let result = '';\r",
+							"    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+							"    const charactersLength = characters.length;\r",
+							"\r",
+							"\tfor (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+							"\t}\r",
+							"\treturn result;\r",
+							"}\r",
+							"\t\t\t\t\t\r",
+							"pm.collectionVariables.set(\"random\", generateRandomString(5));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Upload config title is APS withdrawal\", function () {",
+							"    pm.expect(res.uploadConfig.title).to.equal(\"APS withdrawal\");",
+							"});",
+							"",
+							"pm.test(\"APS withdrawal account data are having proper values\", function() {",
+							"     pm.expect(res.data[\"Card Account Holder Name\"].value).to.equal(pm.variables.get('random'));",
+							"     pm.expect(res.data[\"Card Account Holder Surname\"].value).to.equal(pm.variables.get('random'));",
+							"     pm.expect(res.data[\"Card Expiration Date\"].value).to.equal(pm.variables.get('random'));",
+							"     pm.expect(res.data[\"Bank Card Number\"].value).to.equal(pm.variables.get('random'));",
+							"});",
+							"",
+							"pm.collectionVariables.set('idApsW', res.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"key\": \"Card Account Holder Name\",\r\n            \"value\": \"{{random}}\"\r\n        },\r\n        {\r\n            \"key\": \"Card Account Holder Surname\",\r\n            \"value\": \"{{random}}\"\r\n        },\r\n        {\r\n            \"key\": \"Card Expiration Date\",\r\n            \"value\": \"{{random}}\"\r\n        },\r\n        {\r\n            \"key\": \"Bank Card Number\",\r\n            \"value\": \"{{random}}\"\r\n        }\r\n    ],\r\n    \"configId\": 46\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://my.amega.finance/client-api/payment-details/upload",
+					"protocol": "https",
+					"host": [
+						"my",
+						"amega",
+						"finance"
+					],
+					"path": [
+						"client-api",
+						"payment-details",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete APS withdrawal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Successful deletion of APS withdrawal\", function () {\r",
+							"    pm.expect(res.result).to.be.true;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://my.amega.finance/client-api/payment-details/{{idApsW}}",
+					"protocol": "https",
+					"host": [
+						"my",
+						"amega",
+						"finance"
+					],
+					"path": [
+						"client-api",
+						"payment-details",
+						"{{idApsW}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"if (pm.response.responseTime < 50) {\r",
+					"    pm.test('Response time received is GOOD - lower than 50ms', () => {\r",
+					"\t\tpm.expect(pm.response.responseTime).to.be.below(50);\r",
+					"\t})\r",
+					"} else if (pm.response.responseTime >= 50 && pm.response.responseTime <= 100) {\r",
+					"\tpm.test('Response time received is MODERATE - between 50ms and 100ms', () => {\r",
+					"\t\tpm.expect(pm.response.responseTime).to.be.within(50, 100);\r",
+					"\t});\r",
+					"} else {\r",
+					"\tpm.test('Response time received is SLOW - above 100ms', () => {\r",
+					"\t    pm.expect(pm.response.responseTime).to.be.above(100);\r",
+					"    });\r",
+					"}\r",
+					"\r",
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "random",
+			"value": ""
+		},
+		{
+			"key": "idApsW",
+			"value": ""
+		}
+	]
+}

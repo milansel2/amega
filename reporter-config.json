@@ -1,0 +1,9 @@
+{
+    "reporterEnabled": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "charts": true,
+        "reportPageTitle": "Cypress E2E Tests",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+    }
+}
